@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>manage — shall we?</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* This page has no map behind it — plain background instead. */
+  body{ background: var(--mint-bg); }
+  .back-link{ display:inline-block; margin-bottom: 16px; color: var(--green-deep); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+  .back-link:hover{ text-decoration: underline; }
+  .current-value{ font-size: 0.82rem; color: var(--text-muted); margin-top: 8px; word-break: break-all; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back-link" href="index.html">← back to the site</a>
+
+  <header class="hero card" style="padding: 24px 30px;">
+    <h1 style="font-size:1.6rem;">manage</h1>
+    <p class="sub">this page is for pinning ideas, setting locations, and setting up music. she doesn't need to see this one — it's not linked from anywhere but the small ⚙ at the bottom of the main page.</p>
+  </header>
+
+  <!-- ============================================================
+       THE BOARD — full editing here
+  ============================================================= -->
+  <section class="card panel">
+    <h2>the board</h2>
+    <p class="hint">tap ✕ to remove an idea.</p>
+    <div class="board-grid" id="activityList"></div>
+
+    <details class="add-form" open>
+      <summary>+ pin a new idea</summary>
+      <div class="form-body">
+        <div class="form-grid">
+          <div class="full">
+            <label class="small">name</label>
+            <input type="text" id="newName" placeholder="e.g. sunset walk by the river">
+          </div>
+          <div>
+            <label class="small">rain</label>
+            <div class="chip-row green" id="newRain">
+              <button class="chip active" data-value="either">either</button>
+              <button class="chip" data-value="yes">needs rain</button>
+              <button class="chip" data-value="no">needs dry</button>
+            </div>
+          </div>
+          <div>
+            <label class="small">cold</label>
+            <div class="chip-row green" id="newCold">
+              <button class="chip active" data-value="either">either</button>
+              <button class="chip" data-value="yes">needs cold</button>
+              <button class="chip" data-value="no">needs mild/warm</button>
+            </div>
+          </div>
+          <div class="full">
+            <label class="small">fits which moods? (pick any)</label>
+            <div class="chip-row purple" id="newMood">
+              <button class="chip" data-value="fancy">fancy</button>
+              <button class="chip" data-value="night-in">night in</button>
+              <button class="chip" data-value="night-out">night out</button>
+              <button class="chip" data-value="day-trip">day trip</button>
+              <button class="chip" data-value="cozy">cozy</button>
+            </div>
+          </div>
+          <div class="full">
+            <label class="small">good for? (pick any)</label>
+            <div class="chip-row purple" id="newCompany">
+              <button class="chip" data-value="together">just the two of us</button>
+              <button class="chip" data-value="friends">with friends</button>
+              <button class="chip" data-value="solo">solo</button>
+            </div>
+          </div>
+
+          <div class="full location-box">
+            <label class="small">📍 general area in Glasgow? (optional)</label>
+            <p class="mini-hint">use this for a rough area, or skip it if you're adding specific places below instead.</p>
+            <div class="location-search-row">
+              <input type="text" id="locationQuery" placeholder="search a place, e.g. Kelvingrove Park">
+              <button type="button" id="locationSearchBtn">find</button>
+            </div>
+            <div id="locationResults" class="location-results"></div>
+            <div id="locationSelected" class="location-selected"></div>
+          </div>
+
+          <div class="full options-box">
+            <label class="small">🍽️ specific options (optional)</label>
+            <p class="mini-hint">e.g. if the idea is "fancy dinner," add named restaurants here — when this idea is picked, it'll suggest one of them at random.</p>
+            <div id="optionRows"></div>
+            <button type="button" class="add-option-btn" id="addOptionBtn">+ add a specific place</button>
+          </div>
+        </div>
+        <button class="save-btn" id="saveActivityBtn">pin it</button>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============================================================
+       MUSIC SETUP
+  ============================================================= -->
+  <section class="card panel">
+    <h2>music setup</h2>
+    <p class="hint">this link stays on this page only — the main site never shows it, just the embedded playlist and a floating play/pause button.</p>
+
+    <div class="music-block">
+      <h3>playlist embed</h3>
+      <div class="playlist-input-row">
+        <input type="text" id="playlistUrl" placeholder="https://open.spotify.com/playlist/...">
+        <button id="savePlaylistBtn">save</button>
+      </div>
+      <div id="playlistCurrent" class="current-value"></div>
+    </div>
+  </section>
+
+</div>
+
+<script src="shared.js"></script>
+<script src="manage.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>shall we? 🌿</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="mapBackground"></div>
+
+<div class="wrap">
+
+  <header class="hero card">
+    <div class="hero-plants" aria-hidden="true">
+      <svg viewBox="0 0 40 60" class="plant plant-left"><path d="M20 60 V20" stroke="#8FB88A" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M20 30 C10 26 6 16 10 8 C16 12 20 20 20 30Z" fill="#BFE3C4"/><path d="M20 24 C30 20 34 10 30 2 C24 6 20 14 20 24Z" fill="#A9D6AE"/><circle cx="20" cy="6" r="4" fill="#C9B8E8"/></svg>
+      <svg viewBox="0 0 40 60" class="plant plant-right"><path d="M20 60 V24" stroke="#8FB88A" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M20 32 C30 28 34 18 30 10 C24 14 20 22 20 32Z" fill="#D7C6F0"/><path d="M20 26 C10 22 6 12 10 4 C16 8 20 16 20 26Z" fill="#BFE3C4"/><circle cx="12" cy="8" r="3.5" fill="#B497DD"/></svg>
+    </div>
+    <p class="eyebrow">a little board for</p>
+    <h1>shall we?</h1>
+    <p class="sub">tell it the weather, the mood, and the company — it'll pick a plan and show you where in Glasgow to go.</p>
+  </header>
+
+  <section class="card picker">
+    <div class="field-group">
+      <div class="field-label">🌦️ is it raining?</div>
+      <div class="chip-row green" id="rainRow">
+        <button class="chip active" data-value="either">doesn't matter</button>
+        <button class="chip" data-value="yes">yes, raining</button>
+        <button class="chip" data-value="no">no, dry</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">❄️ is it cold out?</div>
+      <div class="chip-row green" id="coldRow">
+        <button class="chip active" data-value="either">doesn't matter</button>
+        <button class="chip" data-value="yes">yes, chilly</button>
+        <button class="chip" data-value="no">no, mild/warm</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">💜 what's the mood?</div>
+      <div class="chip-row purple" id="moodRow">
+        <button class="chip active" data-value="either">surprise us</button>
+        <button class="chip" data-value="fancy">fancy</button>
+        <button class="chip" data-value="night-in">night in</button>
+        <button class="chip" data-value="night-out">night out</button>
+        <button class="chip" data-value="day-trip">day trip</button>
+        <button class="chip" data-value="cozy">cozy</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">🌱 who's it with?</div>
+      <div class="chip-row purple" id="companyRow">
+        <button class="chip active" data-value="either">anyone</button>
+        <button class="chip" data-value="together">just the two of us</button>
+        <button class="chip" data-value="friends">with friends</button>
+        <button class="chip" data-value="solo">solo</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="reveal-area">
+    <button class="reveal-btn" id="revealBtn">choose for us 🌸</button>
+    <p class="map-hint">if it picks a specific spot, the map will jump there</p>
+  </div>
+
+  <div id="result"></div>
+
+  <!-- ============================================================
+       THE BOARD — view only. Adding/removing ideas happens on the
+       manage page (linked at the bottom).
+  ============================================================= -->
+  <section class="card panel">
+    <h2>the board</h2>
+    <p class="hint">every idea pinned so far. tap a card to preview it on the map.</p>
+    <div class="board-grid" id="activityList"></div>
+  </section>
+
+  <!-- ============================================================
+       MUSIC — the playlist embed lives here (visible, per your call).
+       The background track and quick playlist controls live in the
+       floating widget instead, so this panel only shows if a
+       playlist link is set.
+  ============================================================= -->
+  <section class="card panel" id="musicPanel" style="display:none;">
+    <h2>a little music for it</h2>
+    <div id="playlistArea"></div>
+  </section>
+
+  <footer>
+    <svg viewBox="0 0 100 24" class="footer-sprig" aria-hidden="true"><path d="M4 20c10-14 30-16 40-8s30 4 52-10" stroke="#B497DD" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    made with a soft spot for you 🌷
+    <div class="manage-link"><a href="manage.html">⚙</a></div>
+  </footer>
+
+</div>
+
+<!-- Floating playlist control -->
+<div id="floatingPlayer" class="floating-player" style="display:none;">
+  <button class="floating-playlist-btn" id="floatingPlaylistBtn">🎶 play playlist</button>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<script src="shared.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

@@ -14,18 +14,23 @@ const MARKER_HEX = '#B497DD';
 
 /* ---------- starter activities ---------- */
 const DEFAULT_ACTIVITIES = [
-  {id:1, name:"Blanket fort & movie night", rain:"either", cold:"either", moods:["night-in","cozy"], company:["together"], location:null, options:[]},
-  {id:2, name:"Dress up for a fancy dinner", rain:"either", cold:"either", moods:["fancy","night-in"], company:["together"], location:null, options:[
+  {id:1, name:"Movie night", rain:"either", cold:"either", moods:["night-in","cozy"], company:["together"], location:null, options:[]},
+  {id:2, name:"Fancy dinner", rain:"either", cold:"either", moods:["fancy","night-out"], company:["together"], location:null, options:[
     {name:"Ubiquitous Chip", location:{lat:55.8763, lng:-4.2932, label:"Ubiquitous Chip"}},
-    {name:"The Finnieston", location:{lat:55.8654, lng:-4.2825, label:"The Finnieston"}}
+    {name:"The Finnieston", location:{lat:55.8654, lng:-4.2825, label:"The Finnieston"}},
+    {name:"Lobo", location:{lat:55.8398, lng:-4.2882, label:"Lobo"}}
   ]},
   {id:3, name:"Botanic Gardens wander", rain:"no", cold:"either", moods:["day-trip","cozy"], company:["together","solo"], location:{lat:55.8797, lng:-4.2911, label:"Botanic Gardens"}, options:[]},
   {id:4, name:"Kelvingrove Art Gallery", rain:"yes", cold:"either", moods:["day-trip","fancy"], company:["together","friends","solo"], location:{lat:55.8687, lng:-4.2907, label:"Kelvingrove Art Gallery"}, options:[]},
   {id:5, name:"Picnic in Kelvingrove Park", rain:"no", cold:"no", moods:["day-trip"], company:["together","friends"], location:{lat:55.8687, lng:-4.2842, label:"Kelvingrove Park"}, options:[]},
   {id:6, name:"Cosy café & a good book", rain:"yes", cold:"either", moods:["night-in","cozy","day-trip"], company:["solo","together"], location:null, options:[]},
   {id:7, name:"Karaoke night", rain:"either", cold:"either", moods:["night-out"], company:["together","friends"], location:null, options:[]},
-  {id:8, name:"Bonfire & s'mores, Pollok Park", rain:"no", cold:"yes", moods:["night-in","night-out"], company:["together","friends"], location:{lat:55.8288, lng:-4.3175, label:"Pollok Country Park"}, options:[]}
-];
+  {id:8, name:"Coffee and a walk in the park", rain:"no", cold:"yes", moods:["night-in","night-out"], company:["together","friends"], location:null, options:[
+     {name:"Pollock Park", location:{lat:55.8288, lng:-4.3175, label:"Pollok Country Park"}},
+     {name:"Kelvingrove Park", location:{lat:55.869167, lng:-4.283895, label:"Kelvingrove Park"}}
+]},
+   {id:9, name:"Pub night", rain:"either", cold:"either", moods:["night-in","night-out"], company:["together","friends"], location:null, options:[]},
+]};
 
 /* ---------- storage keys ---------- */
 const STORE_KEY = "shallwe_activities_glasgow_v1";
